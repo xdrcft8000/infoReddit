@@ -8,4 +8,4 @@
   //print_r($searchterm);
 //  print_r($argument); -->
 
-<p><?php $_GET['searchterm']; ?></p>
+<p><?php $_GET["searchterm"] ?></p>
