@@ -3,7 +3,7 @@
 <body>
 <p>
 <?php
-    $argument = 'main.py ' . $_GET["searchterm"] . " " . $_GET["timecache"];
+    $argument = 'main.py ' . $_GET["searchterm"];
     $command = escapeshellcmd($argument);
     $output = shell_exec($command);
     echo $output;
