@@ -27,7 +27,7 @@
                         <input type="range" id="timecache" name="timecache" value="120" min="60" max="600" step="60">
                     </div>
                     </form>
-                    <span class="clear" onclick="document.getElementById ('mysearch').value= ''; document.getElementById('timecache').value='120'"></span>
+                    <span class="clear" onclick="document.getElementById ('mysearch').value= ''; document.getElementById('timecache').value='20'"></span>
                   </div>
 
                   <script>

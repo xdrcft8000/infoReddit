@@ -52,7 +52,7 @@ if len(sys.argv) > 1:
 else:
     seconds = 30                #timeout limit
     INPUT = 'biden'
-    
+
 if 'reddit.com' in INPUT:   #If link is a reddit post
     test_post= reddit.submission(url=INPUT)
     if test_post.url:        #If post is a link post it will search for the url
@@ -85,13 +85,13 @@ for posts in itertools.chain(submissions,submissions2,submissions3,submissions4)
     totsent = 0
 
     for comments in posts.comments:
-        if count == 5:
+        if count == 3:
             break
 
         totsent += sia.polarity_scores(comments.body)["compound"]
         count += 1
     # a comment rating is made based on the average rating of the top comments
-    commentrating = totsent/5
+    commentrating = totsent/3
     appendDictionary(posts,SearchResults,commentrating)  #adds each posts deatails to dictionary
 
 def getLineGraph(x):
