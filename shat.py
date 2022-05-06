@@ -10,7 +10,10 @@ import datetime
 import time
 from IPython.display import display
 import sentiment
-from sentiment import sentimentAnalysis
+from nltk.sentiment import SentimentIntensityAnalyzer
+
+
+sia = SentimentIntensityAnalyzer()
 print(os.getcwd())
 os.chdir(os.path.expanduser("~"))
 print(os.getcwd())
@@ -49,6 +52,7 @@ if len(sys.argv) > 1:
 else:
     seconds = 30                #timeout limit
     INPUT = 'biden'
+    
 if 'reddit.com' in INPUT:   #If link is a reddit post
     test_post= reddit.submission(url=INPUT)
     if test_post.url:        #If post is a link post it will search for the url
@@ -83,8 +87,8 @@ for posts in itertools.chain(submissions,submissions2,submissions3,submissions4)
     for comments in posts.comments:
         if count == 5:
             break
-        sentiment = sentimentAnalysis(comments.body)
-        totsent += sentiment["compound"]
+
+        totsent += sia.polarity_scores(comments.body)["compound"]
         count += 1
     # a comment rating is made based on the average rating of the top comments
     commentrating = totsent/5

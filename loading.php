@@ -3,7 +3,7 @@
 <body>
 <p>
 <?php
-    $argument = 'python shat.py ' . $_GET["searchterm"] . " " . $_GET["timecache"];
+    $argument = 'python3 shat.py ' . $_GET["searchterm"] . " " . $_GET["timecache"];
     $command = escapeshellcmd($argument);
     $output = shell_exec($command);
     echo $output;
