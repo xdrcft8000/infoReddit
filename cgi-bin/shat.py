@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/env python
 #!pip install --upgrade praw
 import sys
 import os
