@@ -5,7 +5,7 @@
 <?php
     $argument = 'python shat.py ' . $_GET["searchterm"] . " " . $_GET["timecache"];
     $command = escapeshellcmd($argument);
-    $output = shell_exec($command);
+    $output = passthru($command);
     echo $output;
     echo $argument;
      ?>
