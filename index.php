@@ -24,7 +24,7 @@
                     <div class="input">
                         <input type="text" name = "searchterm" placeholder="Search" id="mysearch">
                         <br>
-                        <input type="range" id="timecache" name="timecache" value="120" min="60" max="600" step="60">
+                        <input type="range" id="timecache" name="timecache" value="20" min="10" max="610" step="60">
                     </div>
                     </form>
                     <span class="clear" onclick="document.getElementById ('mysearch').value= ''; document.getElementById('timecache').value='20'"></span>
