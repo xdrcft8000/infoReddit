@@ -5,6 +5,7 @@
   ////  $command = escapeshellcmd($argument);
   //  $output = shell_exec($command);
   //  echo $output;
-  print_r($searchterm);
+  //print_r($searchterm);
 //  print_r($argument);
 ?>
+<p><?php $searchterm  ?></p>
