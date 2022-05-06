@@ -1,0 +1,51 @@
+
+/* TABLE STYLES TEMPLATE MADE BY ZACH SAFFRIN - AVAILABLE: https://codepen.io/zachsaffrin/pens/popular */
+/* USED UNDER FAIR USE, FOR NON COMMERCIAL PURPOSES */
+/*  [1] Z. Saffrin, “Slick Tables HTML/CSS Structure,” CodePen. https://codepen.io/zachsaffrin/pen/zrxsc (accessed Nov. 23, 2020). */
+
+
+tbody tr {
+  transition: background 0.25s ease;
+  color:#404040;
+}
+tbody tr:hover {
+  background: #004860;
+  color:#ffffff;
+}
+
+
+table *, table *:before, table *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+table {
+  background: #fffef7;
+  border-radius: 1em;
+  border-collapse: collapse;
+  margin: 1em;
+  display: inline-block;
+  font-family: "Arial Rounded", sans-serif;
+  box-shadow: 0 0 5px 3px #CC3700;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #ff4500;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+td {
+  color:inherit;
+  font-weight: 400;
+  padding: 0.65em 1em;
+  max-width: 30vw;
+  font-size: 1.75em;
+}
+
+td img{
+  height:10vw;
+  border-radius: 25em;
+}
