@@ -20,7 +20,7 @@
                 <search>
                   <div id="search">
                     <div id="icon"></div>
-                    <form action="cgi-bin/testapi.py" method="GET">
+                    <form action="loading.php" method="GET">
                     <div class="input">
                         <input type="text" name = "searchterm" placeholder="Search" id="mysearch">
                         <br>
