@@ -1,11 +1,9 @@
 #!/user/bin/python3
 #!pip install --upgrade praw
-import cgi, cgitb
 import sys
+import os
 import itertools
-import matplotlib.pyplot as plt
 import praw
-import matplotlib.dates
 import csv
 import pandas as pd
 import datetime
@@ -13,10 +11,11 @@ import time
 from IPython.display import display
 import sentiment
 from sentiment import sentimentAnalysis
-cgitb.enable()
+print(os.getcwd())
+os.chdir(os.path.expanduser("~"))
+print(os.getcwd())
 
-##INPUT = form.getvalue("searchterm")
-##seconds = form.getvalue("timeout")
+
 reddit = praw.Reddit(client_id='y97YLExnyHMfbXb3hwatyg',
                      client_secret='57lfKkP6ugVHOOjzde5w_5IPsZRk_Q',
                      user_agent='firstdraft',
@@ -44,10 +43,13 @@ def appendDictionary(post,dict,commentrating):
     dict["comment"].append(commentrating)
 
 start_time = time.time()
-seconds = 30                #timeout limit
-INPUT = 'biden'
-#INPUT = str(sys.argv[1])
-if  'reddit.com' in INPUT:   #If link is a reddit post
+#seconds = 30                #timeout limit
+#INPUT = 'biden'
+
+INPUT = str(sys.argv[1])
+seconds = int(sys.argv[2])
+
+if 'reddit.com' in INPUT:   #If link is a reddit post
     test_post= reddit.submission(url=INPUT)
     if test_post.url:        #If post is a link post it will search for the url
         post = '"'+test_post.url+'"'
@@ -76,17 +78,16 @@ for posts in itertools.chain(submissions,submissions2,submissions3,submissions4)
     # Comment processing and sentiment analysis
     posts.comments.replace_more(limit=0)
     count = 0
-    totalneg = 0
-    totalpos = 0
+    totsent = 0
+
     for comments in posts.comments:
         if count == 5:
             break
         sentiment = sentimentAnalysis(comments.body)
-        totalneg += sentiment["probability"]["neg"]
-        totalpos += sentiment["probability"]["pos"]
+        totsent += sentiment["compound"]
         count += 1
     # a comment rating is made based on the average rating of the top comments
-    commentrating = (totalpos - totalneg)/5
+    commentrating = totsent/5
     appendDictionary(posts,SearchResults,commentrating)  #adds each posts deatails to dictionary
 
 def getLineGraph(x):
