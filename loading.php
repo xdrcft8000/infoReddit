@@ -3,10 +3,11 @@
 <body>
 <p>
 <?php
-    $command = escapeshellcmd('python cgi-bin/testapi.py ' . $_GET["searchterm"]);
-    $output = shell_exec($command);
-    echo $output;
-    echo 'python cgi-bin/testapi.py ' . $_GET["searchterm"] ?>
+    $argument = 'python cgi-bin/testapi.py ' . $_GET["searchterm"]
+    //$command = escapeshellcmd('python cgi-bin/testapi.py ' . $_GET["searchterm"]);
+    //$output = shell_exec($command);
+    //echo $output;
+    echo $argument ?>
 </p>
 </body>
 </html>
