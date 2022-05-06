@@ -1,6 +1,6 @@
 
 <?php
-    $command = escapeshellcmd('python main.py');
+    $command = escapeshellcmd('python cgi-bin/testapi.py ' + $_GET[‘searchterm’]);
     $output = shell_exec($command);
     echo $output;
 ?>
