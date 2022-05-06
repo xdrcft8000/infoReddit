@@ -43,12 +43,12 @@ def appendDictionary(post,dict,commentrating):
     dict["comment"].append(commentrating)
 
 start_time = time.time()
-#seconds = 30                #timeout limit
-#INPUT = 'biden'
-
-INPUT = str(sys.argv[1])
-seconds = int(sys.argv[2])
-
+if len(sys.argv) > 1:
+    INPUT = str(sys.argv[1])
+    seconds = int(sys.argv[2])
+else:
+    seconds = 30                #timeout limit
+    INPUT = 'biden'
 if 'reddit.com' in INPUT:   #If link is a reddit post
     test_post= reddit.submission(url=INPUT)
     if test_post.url:        #If post is a link post it will search for the url
