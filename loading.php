@@ -9,7 +9,7 @@
 //  print_r($argument); -->
 
 <p>
-<?php echo $_GET["searchterm"] ?>
-SWAGG</p>
+<?php echo 'python cgi-bin/testapi.py' . $_GET["searchterm"] ?>
+</p>
 </body>
 </html>
